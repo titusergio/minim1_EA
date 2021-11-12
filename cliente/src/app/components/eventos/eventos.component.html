@@ -1,0 +1,76 @@
+<div class="container">
+
+    <div class="row">
+  
+    <div class="col-md-9">
+      <div class="jumbotron text-center" style="margin-bottom: 10px; margin-top: 10px;">
+        <h2>Listado de los eventos</h2>
+      </div>
+      <div class="row">
+  
+      <div class="col-md-4 mb-2"*ngFor="let evento of eventoService.eventos">
+        <div class="card-group">
+            <div class="card bg-info" style="width: 16rem;">
+               <div class="card-header text-center" >{{evento.nombre}}</div>
+
+              <div class="card-body">
+                <p>Fecha: {{evento.fecha}}</p>
+                <p>Descripcion: {{evento.descripcion}}</p>
+                <p>Cordenadas: {{evento.cordenadas}}</p>
+                
+                <button type="button" class="btn btn-primary btn-sm" (click)="editEvento(evento)">Editar</button>
+                <button type="button" class="btn btn-danger btn-sm"(click)="deleteEvento(evento._id)">Eliminar</button>
+                <button type="button" class="btn btn-info  btn-sm"(click)="routing(evento._id)">Ver mas</button>
+                
+              </div>
+            </div>  
+      
+          </div> 
+    
+        </div>
+  
+      </div>
+  
+  
+    </div>
+  
+  
+  
+      <div class="col-md-3">
+        <div class="jumbotron text-center mb-3" style="margin-bottom: 10px; margin-top: 10px;">
+          <h4>Añade un evento</h4>
+        </div>
+        <div class="card p-2">
+          <form #eventoForm="ngForm" (ngSubmit)="addEvento(eventoForm)">
+            <input type="hidden" name="id" [(ngModel)]="eventoService.selectedEvento._id"  >
+            <div class="mb-3">
+              <label for="nombre" class="form-label">Nombre</label>
+              <input type="name" class="form-control" name="nombre" aria-describedby="nameHelp" [(ngModel)]="eventoService.selectedEvento.nombre">
+            </div>
+            <div class="mb-3">
+                <label for="fecha" class="form-label">Fecha</label>
+                <input type="name" class="form-control" name="fecha" aria-describedby="nameHelp" [(ngModel)]="eventoService.selectedEvento.fecha">
+            </div>
+            <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripcion</label>
+                <input type="name" class="form-control" name="descripcion" aria-describedby="nameHelp" [(ngModel)]="eventoService.selectedEvento.descripcion">
+            </div>
+            <div class="mb-3">
+                <label for="cordenadas" class="form-label">Cordenadas</label>
+                <input type="name" class="form-control" name="cordenadas" aria-describedby="nameHelp" [(ngModel)]="eventoService.selectedEvento.cordenadas">
+            </div>
+            
+            
+            
+            <div class="text-center">
+            <button type="submit" class="btn btn-success ">Submit</button>
+            </div>
+          </form>
+        </div>
+        
+             
+      </div>
+  
+    </div>
+    
+  </div>

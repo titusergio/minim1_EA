@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+
+     
+  
+    
+  
+    <div class="col-md-8 mt-4 ">
+      <h3>Personas del evento</h3>
+      <div *ngFor="let persona of personaService.personas">
+        <div  *ngFor="let id of personaService.evento.personas">
+          <div *ngIf="persona._id ===id">
+  
+        
+            <table class="table table-striped mt-3">
+              <thead>
+                <th>Nombre</th>
+                <th>Edad</th>
+              </thead>  
+              <tbody>
+  
+                <tr>
+                                                  
+                <td>{{ persona.nombre }}</td>
+                <td>{{ persona.edad }}</td>
+                    
+                          
+                </tr>
+                                                 
+              </tbody>
+            
+            </table>
+  
+          </div>
+        </div>
+      </div>
